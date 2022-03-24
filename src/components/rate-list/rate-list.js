@@ -11,7 +11,9 @@ import ErrorIndicator from '../error-indicator';
 
 import './rate-list.css';
 
-function BookList({ rates, page, gotoPageNew }) {
+let ratesValute = [];
+
+function BookList({ ratesValute, page, gotoPageNew }) {
 // console.log (rates);
 
   return (
@@ -28,9 +30,9 @@ function BookList({ rates, page, gotoPageNew }) {
       </thead>
       <tbody>
 
-        { rates.map((rate) => ( 
+        { ratesValute.map((rate) => ( 
           <BookListItem
-            rates={rates}
+          ratesValute={ratesValute}
             // onClick={console.log('dslknb')}
             key={rate.ID}
             // className="tooltip"
@@ -49,21 +51,25 @@ class BookListContainer extends Component {
   componentDidMount() {
     this.props.fetchRates();
   }
-
   render() {
     const {
       rates, loading, error
     } = this.props;
-
+    // console.log(rates)
+    // rates = Object.values(rates.Valute);
     if (loading) {
       return <Spinner />;
     }
     if (error) {
       return <ErrorIndicator />;
     }
+    if (rates) {
+      // console.log(rates)
+      ratesValute = Object.values(rates.Valute);
+    }
     return (
       <BookList
-        rates={rates}
+      ratesValute={ ratesValute }
         // gotoPageNew = {gotoPageNew}
       />
     );

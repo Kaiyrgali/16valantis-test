@@ -34,6 +34,8 @@ export const gotoPage = (page) => ({
 const fetchRates = (ratestoreService) => () => (dispatch) => {
   dispatch(booksRequested());
   ratestoreService.getDailyRates()
+    // const data = ;
+    // .then(()=>(const data = Object.values(parseData.Valute)))
     .then((data) => dispatch(booksLoaded(data)))
     .catch((err) => dispatch(booksError(err)));
 };

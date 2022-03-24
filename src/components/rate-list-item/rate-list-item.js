@@ -4,7 +4,7 @@ import { ArchivePage } from '../pages';
 
 // gotoArchivePage = (id) = navigate('/:id')
 
-function BookListItem({ rates, rate }) {
+function BookListItem({ ratesValute, rate }) {
   const {
     CharCode, NumCode, Value, Previous, Nominal, ID, Name
   } = rate;
