@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import BookListItem from '../book-list-item';
-import { withBookstoreService } from '../hoc';
-import { fetchBooks, gotoPage } from '../../actions';
+import { withRatesStoreService } from '../hoc';
+import { fetchRates, gotoPage } from '../../actions';
 import { compose } from '../../utils';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
@@ -47,7 +47,7 @@ function BookList({ books, page, gotoPageNew }) {
 
 class BookListContainer extends Component {
   componentDidMount() {
-    this.props.fetchBooks();
+    this.props.fetchRates();
   }
 
   render() {
@@ -108,10 +108,10 @@ const mapStateToProps = ({ bookList: { books, loading, error, booksFilter, books
 
 const mapDispatchToProps = (dispatch, { bookstoreService }) =>
   bindActionCreators({
-    fetchBooks: fetchBooks(bookstoreService),
+    fetchRates: fetchRates(bookstoreService),
     gotoPageNew: gotoPage,
   }, dispatch);
 export default compose(
-  withBookstoreService(),
+  withRatesStoreService(),
   connect(mapStateToProps, mapDispatchToProps),
 )(BookListContainer);

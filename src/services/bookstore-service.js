@@ -1,51 +1,20 @@
-export default class BookstoreService {
-  _apiBase = 'https://bookshelves.p.rapidapi.com/books';
-  _apiBaseKey = 'bd732ebbc0msha041923465307c3p12afe7jsndb11f3e132d9';
-  // _apiBaseKey = '5aea6a6c5fmshfbf9bf49513d8c9p1f57e8jsn5bee58ede18b';
-  _apiBaseHost = 'bookshelves.p.rapidapi.com';
+const _apiBase = 'https://www.cbr-xml-daily.ru/daily_json.js';
 
-  getBooks = async () => {
-    const res = await fetch(this._apiBase, {
-          "method": "GET",
-          "headers": {
-            "x-rapidapi-key": this._apiBaseKey,
-            "x-rapidapi-host": this._apiBaseHost
-          }});
+export default class RatesStoreService {
+
+  getDailyRates = async () => {
+    const res = await fetch(_apiBase);
+    console.log(res);
     if (!res.ok) {
-      throw new Error(`Could not fetch Books DataBase recieved ${res.status}`);
+      throw new Error(`Could not fetch Rates recieved ${res.status}`);
     };
     const parseData = await res.json();
-    const data = Object.values(parseData.Books);
+    
+    const data = Object.values(parseData.Valute);
+    console.log(data);
     return data;
    }
 
 
 
 };  
-    // data = getBooks();
-  
-
-
-  // };
-  // data = [
-  //   {
-  //     id: 1,
-  //     title: 'Production-Ready Microservices',
-  //     author: 'Susan J. Fowler',
-  //     price: 32,
-  //     coverImage: 'https://images-na.ssl-images-amazon.com/images/I/41yJ75gpV-L._SX381_BO1,204,203,200_.jpg',
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Release It!',
-  //     author: 'Michael T. Nygard',
-  //     price: 45,
-  //     coverImage: 'https://images-na.ssl-images-amazon.com/images/I/414CRjLjwgL._SX403_BO1,204,203,200_.jpg',
-  //   },
-  // ];
-
-  // getBooks() {
-  //   return new Promise((resolve, reject) => {
-  //   reject(new Error('Something bad happened !'));
-  //   resolve(this.data());
-  //       })}}

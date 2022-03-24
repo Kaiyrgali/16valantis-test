@@ -1,7 +1,7 @@
 {
-  "name": "book-store",
+  "name": "valantis-test",
   "version": "1.0.0",
-  "description": "Books by any filters",
+  "description": "Test task for valantis company",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",

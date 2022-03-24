@@ -31,13 +31,13 @@ export const gotoPage = (page) => ({
   payload: page,
 });
 
-const fetchBooks = (bookstoreService) => () => (dispatch) => {
+const fetchRates = (bookstoreService) => () => (dispatch) => {
   dispatch(booksRequested());
-  bookstoreService.getBooks()
+  bookstoreService.getDailyRates()
     .then((data) => dispatch(booksLoaded(data)))
     .catch((err) => dispatch(booksError(err)));
 };
 
 export {
-  fetchBooks,
+  fetchRates,
 };

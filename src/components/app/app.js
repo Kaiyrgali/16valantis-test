@@ -6,17 +6,17 @@ import HomePage from '../pages/home-page';
 // import CartPage from '../pages/cart-page';
 import store from '../../store';
 import ErrorBoundry from '../error-boundry';
-import { BookstoreServiceProvider } from '../bookstore-service-context';
-import BookstoreService from '../../services/bookstore-service';
+import { RatesStoreServiceProvider } from '../bookstore-service-context';
+import RatesStoreService from '../../services/bookstore-service';
 
-const bookstoreService = new BookstoreService();
+const bookstoreService = new RatesStoreService();
 
 function App() {
 
   return (
     <Provider store={store}>
       <ErrorBoundry>
-        <BookstoreServiceProvider value={bookstoreService}>
+        <RatesStoreServiceProvider value={bookstoreService}>
           <Router>
             <main role="main" className="container">
               <ShopHeader /> 
@@ -25,7 +25,7 @@ function App() {
               </Routes>
             </main>
           </Router>
-        </BookstoreServiceProvider>
+        </RatesStoreServiceProvider>
       </ErrorBoundry>
     </Provider>
   );

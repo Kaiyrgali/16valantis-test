@@ -1,5 +1,5 @@
-import withBookstoreService from './with-bookstore-service';
+import withRatesStoreService from './with-bookstore-service';
 
 export {
-  withBookstoreService,
+  withRatesStoreService,
 };
