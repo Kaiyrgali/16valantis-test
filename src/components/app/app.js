@@ -2,8 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ShopHeader from '../shop-header/shop-header';
-import HomePage from '../pages/home-page';
-// import CartPage from '../pages/cart-page';
+import { HomePage, ArchivePage, NotFound } from '../pages';
 import store from '../../store';
 import ErrorBoundry from '../error-boundry';
 import { RatesStoreServiceProvider } from '../bookstore-service-context';
@@ -18,12 +17,15 @@ function App() {
       <ErrorBoundry>
         <RatesStoreServiceProvider value={ratestoreService}>
           <Router>
-            <main role="main" >
+            <div>
               <ShopHeader /> 
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="*" element={<NotFound />} />
+                <Route path="/archive/*" element={<ArchivePage />} />
+
               </Routes>
-            </main>
+            </div>
           </Router>
         </RatesStoreServiceProvider>
       </ErrorBoundry>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import BookListItem from '../rate-list-item';
@@ -11,7 +12,7 @@ import ErrorIndicator from '../error-indicator';
 import './rate-list.css';
 
 function BookList({ rates, page, gotoPageNew }) {
-console.log (rates);
+// console.log (rates);
 
   return (
     <table>
@@ -29,6 +30,8 @@ console.log (rates);
 
         { rates.map((rate) => ( 
           <BookListItem
+            rates={rates}
+            // onClick={console.log('dslknb')}
             key={rate.ID}
             // className="tooltip"
             rate={rate}

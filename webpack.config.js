@@ -4,7 +4,9 @@ const path = require('path');
 module.exports = 
 {
   mode: "development",
-
+  output: {
+    publicPath: '/',
+  },
   module: {
     rules: [
       // Babel
@@ -68,6 +70,7 @@ module.exports =
     })
   ],
   devServer: {
-    open: true
+    open: true,
+    historyApiFallback: true
   }
 };

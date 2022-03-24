@@ -1,0 +1,9 @@
+body {
+  background-color: white;
+}
+
+.tooltip:hover {
+  color: red;
+  cursor: pointer;
+}
+/*# sourceMappingURL=main.css.map */

@@ -38,6 +38,14 @@ const fetchRates = (ratestoreService) => () => (dispatch) => {
     .catch((err) => dispatch(booksError(err)));
 };
 
+const fetchArchive = (ratestoreService) => () => (dispatch) => {
+  dispatch(booksRequested());
+  ratestoreService.getArchiveRates()
+    .then((data) => dispatch(booksLoaded(data)))
+    .catch((err) => dispatch(booksError(err)));
+};
+
+
 export {
   fetchRates,
 };

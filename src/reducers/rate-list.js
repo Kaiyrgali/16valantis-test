@@ -5,8 +5,6 @@ const updateRateList = (state, action) => {
       rates: [],
       loading: true,
       error: null,
-      archive: null,
-      archiveLoading: true,
     };
   }
 
@@ -16,8 +14,6 @@ const updateRateList = (state, action) => {
         rates: [],
         loading: true,
         error: null,
-        archive: null,
-        archiveLoading: true,
       };
 
     case 'FETCH_RATES_SUCCESS':
@@ -25,8 +21,6 @@ const updateRateList = (state, action) => {
         rates: action.payload,
         loading: false,
         error: null,
-        archive: null,
-        archiveLoading: true,
         };
 
     case 'FETCH_RATES_FAILURE':
@@ -34,17 +28,14 @@ const updateRateList = (state, action) => {
         rates: [],
         loading: false,
         error: action.payload,
-        archive: null,
-        archiveLoading: true,
         };
 
-    case 'GET_BOOK_FILTER': // скорректировать
+    case 'GET_RATES_ARCHIVE':
+      console.log(state) // скорректировать
       return {
         rates: state.rateList.books,
         loading: false,
         error: null,
-        archive: null, // скорректировать
-        archiveLoading: true,
         }
 
     default:
