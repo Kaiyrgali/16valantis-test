@@ -1,14 +1,14 @@
 const booksRequested = () => ({
-  type: 'FETCH_BOOKS_REQUEST',
+  type: 'FETCH_RATES_REQUEST',
 });
 
 const booksLoaded = (newBooks) => ({
-  type: 'FETCH_BOOKS_SUCCESS',
+  type: 'FETCH_RATES_SUCCESS',
   payload: newBooks,
 });
 
 const booksError = (error) => ({
-  type: 'FETCH_BOOKS_FAILURE',
+  type: 'FETCH_RATES_FAILURE',
   payload: error,
 });
 
@@ -31,9 +31,9 @@ export const gotoPage = (page) => ({
   payload: page,
 });
 
-const fetchRates = (bookstoreService) => () => (dispatch) => {
+const fetchRates = (ratestoreService) => () => (dispatch) => {
   dispatch(booksRequested());
-  bookstoreService.getDailyRates()
+  ratestoreService.getDailyRates()
     .then((data) => dispatch(booksLoaded(data)))
     .catch((err) => dispatch(booksError(err)));
 };

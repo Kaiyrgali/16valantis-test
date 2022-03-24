@@ -7,18 +7,18 @@ import HomePage from '../pages/home-page';
 import store from '../../store';
 import ErrorBoundry from '../error-boundry';
 import { RatesStoreServiceProvider } from '../bookstore-service-context';
-import RatesStoreService from '../../services/bookstore-service';
+import RatesStoreService from '../../services/rates-store-service';
 
-const bookstoreService = new RatesStoreService();
+const ratestoreService = new RatesStoreService();
 
 function App() {
 
   return (
     <Provider store={store}>
       <ErrorBoundry>
-        <RatesStoreServiceProvider value={bookstoreService}>
+        <RatesStoreServiceProvider value={ratestoreService}>
           <Router>
-            <main role="main" className="container">
+            <main role="main" >
               <ShopHeader /> 
               <Routes>
                 <Route path="/" element={<HomePage />} />

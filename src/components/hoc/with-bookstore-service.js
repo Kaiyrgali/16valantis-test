@@ -5,10 +5,10 @@ const withRatesStoreService = () => (Wrapped) => function (props) {
   return (
     <RatesStoreServiceConsumer>
       {
-        (bookstoreService) => (
+        (ratestoreService) => (
           <Wrapped
             {...props}
-            bookstoreService={bookstoreService}
+            ratestoreService={ratestoreService}
           />
         )
       }

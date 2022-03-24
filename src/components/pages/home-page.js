@@ -1,8 +1,8 @@
 import React from 'react';
-import BookListContainer from '../book-list';
+import BookListContainer from '../rate-list';
 import './main.css';
 
-function HomePage({ bookstoreService }) {
+function HomePage({ ratestoreService }) {
   return (
     <div>
       <BookListContainer books={[]} />

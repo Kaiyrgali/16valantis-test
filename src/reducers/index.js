@@ -1,7 +1,7 @@
-import updateBookList from './book-list';
+import updateRateList from './rate-list';
 
 const reducer = (state, action) => ({
-  bookList: updateBookList(state, action)
+  rateList: updateRateList(state, action)
 });
 
 export default reducer;

@@ -38,7 +38,7 @@ function FiltersPanel ({onFilter, onRaiting, onPrice}) {
     );
 }
 
-const mapDispatchToProps = (dispatch, { bookstoreService }) => ({
+const mapDispatchToProps = (dispatch, { ratestoreService }) => ({
   onFilter: (newValue) => dispatch(getFilter(newValue)),
   onRaiting: (newValue) => dispatch(getRaiting(newValue)),
   onPrice: (newValue) => dispatch(getPrice(newValue))
