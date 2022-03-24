@@ -15,26 +15,28 @@ console.log (rates);
 
   return (
     <table>
-      <tbody>
+      <thead>
         <tr>
           <th className="d-none d-lg-table-cell">Цифр. код</th>
           <th className="d-none d-lg-table-cell">Букв. код</th>
-          <th className="d-none d-lg-table-cell">Единиц</th>
-          <th className="d-none d-lg-table-cell">Валюта</th>
+          <th className="d-none d-lg-table-cell">% изм</th>
+          {/* <th className="d-none d-lg-table-cell">Валюта</th> */}
           <th className="d-none d-lg-table-cell">Курс</th>
-          <th className="d-none d-md-table-cell"></th>
+          <th className="d-none d-md-table-cell">Номинал</th>
         </tr>
-      </tbody>
-      
-      { rates.map((rate) => ( 
-        <li key={rate.ID}
-            onClick = {()=>{}}>
+      </thead>
+      <tbody>
+
+        { rates.map((rate) => ( 
           <BookListItem
+            key={rate.ID}
+            // className="tooltip"
             rate={rate}
           />
-        </li>
-      ))
-      }
+        ))
+        }
+
+      </tbody>
       
     </table>
   );
