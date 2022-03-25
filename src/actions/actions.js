@@ -12,6 +12,17 @@ const booksError = (error) => ({
   payload: error,
 });
 
+const archiveRequested = (some) => ({
+  type: 'FETCH_ARCHIVE_REQUEST',
+  payload: some,
+});
+
+const archiveLoaded = (archive) => ({
+  type: 'FETCH_ARCHIVE_SUCCESS',
+  payload: archive,
+});
+
+
 export const getFilter = (newValue) => ({
   type: 'GET_BOOK_FILTER',
   payload: newValue,
@@ -40,10 +51,12 @@ const fetchRates = (ratestoreService) => () => (dispatch) => {
     .catch((err) => dispatch(booksError(err)));
 };
 
-const fetchArchive = (ratestoreService) => () => (dispatch) => {
-  dispatch(booksRequested());
-  ratestoreService.getArchiveRates()
-    // .then((data) => dispatch(booksLoaded(data)))
+const fetchArchive = (ratestoreService) => (data, valuteId) => (dispatch) => {
+  // console.log('ratestoreService', ratestoreService);
+  // console.log(data);
+  // dispatch(archiveRequested());
+  ratestoreService.getArchiveRates(data, valuteId)
+    .then((newData) => dispatch(archiveLoaded(newData)))
     // .catch((err) => dispatch(booksError(err)));
 };
 

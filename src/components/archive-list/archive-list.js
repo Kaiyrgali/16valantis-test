@@ -46,36 +46,29 @@ function ArchiveList (valuteId, { ratestoreService }) {
 
 class ArchiveListContainer extends Component {
   componentDidMount() {
-    this.props.fetchArchive();
+    console.log('props', this.props);
+    this.props.fetchArchive(this.props.rates, this.props.valuteId);
   }
   render() {
     const {
-      rates, loading, error
+      rates, archives
     } = this.props;
+    console.log("archives", archives);
     // console.log(rates)
     // rates = Object.values(rates.Valute);
-    if (loading) {
-      return <Spinner />;
-    }
-    if (error) {
-      return <ErrorIndicator />;
-    }
-    if (rates) {
-      // console.log(rates)
-      ratesValute = Object.values(rates.Valute);
-    }
     return (
-      <BookList
-      ratesValute={ ratesValute }
+      <ArchiveList
+      todayDate = {rat} // начинаем делать вторую страницу 
+      ratesValute={ 'ratesValute' }
         // gotoPageNew = {gotoPageNew}
       />
     );
   }
 }
 
-const mapStateToProps = ({ rateList: { rates, loading, error } }) => ({ rates, loading, error });
+const mapStateToProps = ({ rateList: { rates }, archiveList: { archives } }) => ({ rates, archives });
 
-const mapDispatchToProps = (dispatch, { ratestoreService }) =>
+const mapDispatchToProps = (dispatch, { ratestoreService } ) =>
   bindActionCreators({
     fetchArchive: fetchArchive(ratestoreService),
     // gotoPageNew: gotoPage,

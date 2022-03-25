@@ -31,7 +31,7 @@ const updateRateList = (state, action) => {
         };
 
     case 'GET_RATES_ARCHIVE':
-      console.log(state) // скорректировать
+      console.log('state', state) // скорректировать
       return {
         rates: state.rateList.books,
         loading: false,
