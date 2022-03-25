@@ -13,9 +13,12 @@ import ErrorIndicator from '../error-indicator';
 // import BookListContainer from '../rate-list';
 // import '../../../main.css';
 
-function ArchiveList ( todayDate, archives ) {
+
+function ArchiveList ( { todayDate, archives } ) {
   console.log('archives', archives);
+  console.log('todayDate', todayDate);
   return (
+
       <table>
         <thead>
           <tr>
@@ -29,20 +32,24 @@ function ArchiveList ( todayDate, archives ) {
           </tr>
         </thead>
 
-        {/* <tbody>
-          { archives.map(() => ( 
+        <tbody> 
+          { archives.map((oneDay) => (
             <ArchiveListItem
-              archive={archives}
-              // key={archive.id}
-              oneDayArchive={oneDayArchive}
+            
+            // archives={archives}
+            // key={archives.id}
+            todayDate={todayDate}
+            oneDay={oneDay}
+            key={archives.indexOf(oneDay)}
             />
           ))
           }
-        </tbody> */}
+        </tbody>
         
       </table>
     );
 }
+
 
 class ArchiveListContainer extends Component {
   componentDidMount() {
@@ -53,16 +60,19 @@ class ArchiveListContainer extends Component {
     const {
       rates, archives
     } = this.props;
+    console.log('this.props', this.props);
     console.log("archives", archives);
+    console.log('rates.Date', rates.Date)
     // console.log(rates)
     // rates = Object.values(rates.Valute);
+    if (archives != []) {
     return (
       <ArchiveList
-      todayDate = {rates.Date} // начинаем делать вторую страницу 
-      archives={ archives }
+      todayDate = {rates.Date}
+      archives = { archives }
         // gotoPageNew = {gotoPageNew}
       />
-    );
+    );}
   }
 }
 
@@ -71,7 +81,6 @@ const mapStateToProps = ({ rateList: { rates }, archiveList: { archives } }) => 
 const mapDispatchToProps = (dispatch, { ratestoreService } ) =>
   bindActionCreators({
     fetchArchive: fetchArchive(ratestoreService),
-    // gotoPageNew: gotoPage,
   }, dispatch);
   
 export default compose(

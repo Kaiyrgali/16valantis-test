@@ -12,9 +12,8 @@ const booksError = (error) => ({
   payload: error,
 });
 
-const archiveRequested = (some) => ({
+const archiveRequested = () => ({
   type: 'FETCH_ARCHIVE_REQUEST',
-  payload: some,
 });
 
 const archiveLoaded = (archive) => ({
@@ -54,7 +53,7 @@ const fetchRates = (ratestoreService) => () => (dispatch) => {
 const fetchArchive = (ratestoreService) => (data, valuteId) => (dispatch) => {
   // console.log('ratestoreService', ratestoreService);
   // console.log(data);
-  // dispatch(archiveRequested());
+  dispatch(archiveRequested());
   ratestoreService.getArchiveRates(data, valuteId)
     .then((newData) => dispatch(archiveLoaded(newData)))
     // .catch((err) => dispatch(booksError(err)));

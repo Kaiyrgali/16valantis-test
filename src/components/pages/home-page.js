@@ -5,7 +5,7 @@ import './main.css';
 function HomePage({ ratestoreService }) {
   return (
     <div>
-      <BookListContainer books={[]} />
+      <BookListContainer />
     </div>
   );
 }

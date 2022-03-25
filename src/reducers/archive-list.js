@@ -7,10 +7,11 @@ const updateArchiveList = (state, action) => {
   }
 
   switch (action.type) {
+
     case 'FETCH_ARCHIVE_REQUEST':
       console.log('fetch state', state);
       return {
-        archives: action.payload,
+        archives: [],
       };
 
     case 'FETCH_ARCHIVE_SUCCESS':

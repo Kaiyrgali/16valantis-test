@@ -4,13 +4,15 @@ import { ArchivePage } from '../pages';
 
 // gotoArchivePage = (id) = navigate('/:id')
 
-function ArchiveListItem( archive, oneDayArchive ) {
-console.log('todayDate', todayDate)
-  const {
-    dayCharCode=Object.values(archives.CharCode)
-  //   archives.CharCode, NumCode, Value, Previous, Nominal, ID, Name
-  } = archives;
-  console.log(dayCharCode);
+function ArchiveListItem( {todayDate, oneDay} ) {
+// console.log('todayDate', todayDate);
+// console.log('oneDay', oneDay)
+  // const {
+  //   CharCode
+  // // //   archives.CharCode, NumCode, Value, Previous, Nominal, ID, Name
+  // } = oneDay;
+  // console.log(CharCode);
+// console.log(oneDay[0].ID)
   // const changeRate = () => {  
   //   if (Value>Previous) {
   //     return ((1-Value/Previous)*100).toFixed(2);
@@ -20,21 +22,20 @@ console.log('todayDate', todayDate)
   // };
   // const navigate  = useNavigate()
   // function gotoArchivePage () {navigate(`/archive/${ID}`)}
-  // return (
+  return (
     
-  //   <tr className='tooltip'
-  //       onClick={()=>gotoArchivePage()}
-  //       >
-  //     <td className="d-none d-lg-table-cell">{NumCode}</td>
-  //     <td className="d-none d-lg-table-cell">{CharCode}</td>
-  //     <td className="text-right">{changeRate()}</td>
-  //     <td className="d-none d-lg-table-cell">{Value}</td>
-  //     <td className="d-none d-md-table-cell">{Nominal}</td>
-  //   </tr>
-  // );
+    <tr >
+      
+      <td className="d-none d-lg-table-cell">{oneDay[0].NumCode}</td>
+      <td className="d-none d-lg-table-cell">{oneDay[0].CharCode}</td>
+      <td className="text-right">{oneDay[0].ID}</td>
+      <td className="d-none d-lg-table-cell">{oneDay[0].Value}</td>
+      <td className="d-none d-md-table-cell">{oneDay[0].Nominal}</td>
+    </tr>
+  );
 }
-// CharCode: "CHF"
-// ID: "R01775"
+// // CharCode: "CHF"
+// // ID: "R01775"
 // Name: "Швейцарский франк"
 // Nominal: 1
 // NumCode: "756"
