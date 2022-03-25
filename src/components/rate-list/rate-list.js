@@ -13,7 +13,7 @@ import './rate-list.css';
 
 let ratesValute = [];
 
-function BookList({ ratesValute, page, gotoPageNew }) {
+function BookList({ ratesValute }) {
 // console.log (rates);
 
   return (

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import BookListItem from '../rate-list-item';
+import ArchiveListItem from '../archive-list-item';
 import { withRatesStoreService } from '../hoc';
 import { fetchArchive } from '../../actions';
 import { compose } from '../../utils';
@@ -13,8 +13,8 @@ import ErrorIndicator from '../error-indicator';
 // import BookListContainer from '../rate-list';
 // import '../../../main.css';
 
-function ArchiveList (valuteId, { ratestoreService }) {
-  console.log('valuteId', valuteId);
+function ArchiveList ( todayDate, archives ) {
+  console.log('archives', archives);
   return (
       <table>
         <thead>
@@ -29,16 +29,16 @@ function ArchiveList (valuteId, { ratestoreService }) {
           </tr>
         </thead>
 
-        <tbody>
-          {/* { rates.map((rate) => ( 
-            <BookListItem
-              rates={rates}
-              key={rate.ID}
-              rate={rate}
+        {/* <tbody>
+          { archives.map(() => ( 
+            <ArchiveListItem
+              archive={archives}
+              // key={archive.id}
+              oneDayArchive={oneDayArchive}
             />
           ))
-          } */}
-        </tbody>
+          }
+        </tbody> */}
         
       </table>
     );
@@ -58,8 +58,8 @@ class ArchiveListContainer extends Component {
     // rates = Object.values(rates.Valute);
     return (
       <ArchiveList
-      todayDate = {rat} // начинаем делать вторую страницу 
-      ratesValute={ 'ratesValute' }
+      todayDate = {rates.Date} // начинаем делать вторую страницу 
+      archives={ archives }
         // gotoPageNew = {gotoPageNew}
       />
     );
