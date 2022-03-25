@@ -8,7 +8,7 @@ function BookListItem({ ratesValute, rate }) {
   const {
     CharCode, NumCode, Value, Previous, Nominal, ID, Name
   } = rate;
-  const changeRate = () => {
+  const changeRate = () => {  
     if (Value>Previous) {
       return ((1-Value/Previous)*100).toFixed(2);
     } else {

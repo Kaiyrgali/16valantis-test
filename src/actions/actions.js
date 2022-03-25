@@ -43,11 +43,12 @@ const fetchRates = (ratestoreService) => () => (dispatch) => {
 const fetchArchive = (ratestoreService) => () => (dispatch) => {
   dispatch(booksRequested());
   ratestoreService.getArchiveRates()
-    .then((data) => dispatch(booksLoaded(data)))
-    .catch((err) => dispatch(booksError(err)));
+    // .then((data) => dispatch(booksLoaded(data)))
+    // .catch((err) => dispatch(booksError(err)));
 };
 
 
 export {
   fetchRates,
+  fetchArchive
 };

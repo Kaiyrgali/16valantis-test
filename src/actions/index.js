@@ -1,7 +1,7 @@
 import {
-  fetchRates, getFilter, getRaiting, getPrice, gotoPage
+  fetchRates, fetchArchive, getFilter, getRaiting, getPrice, gotoPage
 } from './actions';
 
 export {
-  fetchRates, getFilter, getRaiting, getPrice, gotoPage
+  fetchRates, fetchArchive, getFilter, getRaiting, getPrice, gotoPage
 };
