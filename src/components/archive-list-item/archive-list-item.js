@@ -4,9 +4,17 @@ import { ArchivePage } from '../pages';
 
 // gotoArchivePage = (id) = navigate('/:id')
 
-function ArchiveListItem( {todayDate, oneDay} ) {
-// console.log('todayDate', todayDate);
-// console.log('oneDay', oneDay)
+function ArchiveListItem( { oneDay, todayDate} ) {
+console.log('todayDate', todayDate);
+console.log('oneDay', oneDay);
+const newDate = Date.parse(todayDate)
+const formatDate = new Date(newDate);
+const formatDateR = formatDate.toDateString();
+console.log(newDate, formatDateR);
+
+// let now = new Date();
+// const newDay = moment(now).format('YYYY-MM-DD');
+// console.dir(now)
   // const {
   //   CharCode
   // // //   archives.CharCode, NumCode, Value, Previous, Nominal, ID, Name
@@ -25,7 +33,7 @@ function ArchiveListItem( {todayDate, oneDay} ) {
   return (
     
     <tr >
-      
+      <td className="d-none d-lg-table-cell">{ formatDateR }</td>
       <td className="d-none d-lg-table-cell">{oneDay[0].NumCode}</td>
       <td className="d-none d-lg-table-cell">{oneDay[0].CharCode}</td>
       <td className="text-right">{oneDay[0].ID}</td>

@@ -11,13 +11,19 @@ import ErrorIndicator from '../error-indicator';
 
 import './rate-list.css';
 
-let ratesValute = [];
+// let ratesValute = [];
+// let today = '';
 
-function BookList({ ratesValute }) {
+function BookList({ ratesValute, today }) {
 // console.log (rates);
 
+
   return (
+    <div>
+    <h1>Exchange rates of the Central Bank of the Russian Federation</h1>
+    <h2>for {today.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', })}</h2>
     <table>
+      
       <thead>
         <tr>
           <th className="d-none d-lg-table-cell">Цифр. код</th>
@@ -37,6 +43,7 @@ function BookList({ ratesValute }) {
             key={rate.ID}
             // className="tooltip"
             rate={rate}
+          
           />
         ))
         }
@@ -44,6 +51,7 @@ function BookList({ ratesValute }) {
       </tbody>
       
     </table>
+    </div>
   );
 }
 
@@ -53,7 +61,7 @@ class BookListContainer extends Component {
   }
   render() {
     const {
-      rates, loading, error
+      rates, loading, error, today
     } = this.props;
     // console.log(rates)
     // rates = Object.values(rates.Valute);
@@ -65,18 +73,32 @@ class BookListContainer extends Component {
     }
     if (rates) {
       // console.log(rates)
-      ratesValute = Object.values(rates.Valute);
-    }
+      // const ratesValute = Object.values(rates.Valute);
+      // const parseDay = Date.parse(today);
+      // const todayDate = new Date(Date.parse(today));
+      // const todayDay = today.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', });
+      // const todayYear = todayDate.getFullYear();
+      // const todayMonth = todayDate.getMonth().toLocaleString('default', { month: 'short' });
+      // const todayDay = todayDate.getDate();
+      // console.log (todayDay)
+
+      console.log('today', today);
+
+      return ( 
+        <BookList
+        ratesValute={ Object.values(rates.Valute) }
+        today = {today}
+          // gotoPageNew = {gotoPageNew}
+        />
+      );
+    } 
     return (
-      <BookList
-      ratesValute={ ratesValute }
-        // gotoPageNew = {gotoPageNew}
-      />
-    );
+      <div></div>
+    )
   }
 }
 
-const mapStateToProps = ({ rateList: { rates, loading, error } }) => ({ rates, loading, error });
+const mapStateToProps = ({ rateList: { rates, loading, error, today } }) => ({ rates, loading, error, today });
 
 const mapDispatchToProps = (dispatch, { ratestoreService }) =>
   bindActionCreators({

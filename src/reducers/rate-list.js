@@ -5,33 +5,29 @@ const updateRateList = (state, action) => {
       rates: [],
       loading: true,
       error: null,
+      today: new Date(),
       archives: [],
     };
   }
 
   switch (action.type) {
-    case 'FETCH_RATES_REQUEST':
+    case 'FETCH_RATES_REQUEST': //зачем тогда это нужно?
       return {
-        rates: [],
-        loading: true,
-        error: null,
-        archives: [],
+        ...state.rateList,
       };
 
     case 'FETCH_RATES_SUCCESS':
       return {
+        ...state.rateList,
         rates: action.payload,
         loading: false,
-        error: null,
-        archives: [],
+        today: new Date(action.payload.Date),
         };
 
     case 'FETCH_RATES_FAILURE':
       return {
-        rates: [],
-        loading: false,
+        ...state.rateList,
         error: action.payload,
-        archives: [],
         };
 
     default:

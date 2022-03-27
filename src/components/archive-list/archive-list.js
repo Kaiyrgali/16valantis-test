@@ -35,12 +35,12 @@ function ArchiveList ( { todayDate, archives } ) {
         <tbody> 
           { archives.map((oneDay) => (
             <ArchiveListItem
-            
+            key={archives.indexOf(oneDay)}
             // archives={archives}
             // key={archives.id}
             todayDate={todayDate}
             oneDay={oneDay}
-            key={archives.indexOf(oneDay)}
+            
             />
           ))
           }
@@ -76,7 +76,7 @@ class ArchiveListContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ rateList: { rates }, archiveList: { archives } }) => ({ rates, archives });
+const mapStateToProps = ({ rateList: { rates, today }, archiveList: { archives } }) => ({ rates, taday, archives });
 
 const mapDispatchToProps = (dispatch, { ratestoreService } ) =>
   bindActionCreators({
