@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactTooltip from 'react-tooltip';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import RateListItem from '../rate-list-item';
@@ -32,6 +33,7 @@ function RateList({ ratesValute, today }) {
           ))}
         </tbody>
       </table>
+      <ReactTooltip />
     </div>
   );
 }

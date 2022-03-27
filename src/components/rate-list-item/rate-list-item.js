@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import ReactTooltip from 'react-tooltip';
 
 function RateListItem({ ratesValute, rate }) {
   const {
-    CharCode, Value, Previous, ID
+    CharCode, Value, Previous, ID, Name
   } = rate;
   const changeRate = ((Value/Previous-1)*100).toFixed(2);
   const navigate  = useNavigate()
@@ -12,6 +13,7 @@ function RateListItem({ ratesValute, rate }) {
   return (
     <tr className='active'
         onClick={()=>gotoArchivePage()}
+        data-tip={Name}
         >
       <td>{CharCode}</td>
       <td>{Value.toFixed(2)}</td>
