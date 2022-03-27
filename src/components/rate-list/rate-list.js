@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import BookListItem from '../rate-list-item';
+import RateListItem from '../rate-list-item';
 import { withRatesStoreService } from '../hoc';
 import { fetchRates } from '../../actions';
 import { compose } from '../../utils';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 
-function BookList({ ratesValute, today }) {
+function RateList({ ratesValute, today }) {
 
   return (
     <div>
@@ -24,7 +24,7 @@ function BookList({ ratesValute, today }) {
         </thead>
         <tbody>
           { ratesValute.map((rate) => ( 
-            <BookListItem
+            <RateListItem
               ratesValute={ratesValute}
               key={rate.ID}
               rate={rate}
@@ -36,7 +36,7 @@ function BookList({ ratesValute, today }) {
   );
 }
 
-class BookListContainer extends Component {
+class RateListContainer extends Component {
   componentDidMount() {
     this.props.fetchRates();
   }
@@ -52,7 +52,7 @@ class BookListContainer extends Component {
     }
     if (rates) {
       return ( 
-        <BookList
+        <RateList
         ratesValute={ Object.values(rates.Valute) }
         today = {today}
         />
@@ -71,4 +71,4 @@ const mapDispatchToProps = (dispatch, { ratestoreService }) =>
 export default compose(
   withRatesStoreService(),
   connect(mapStateToProps, mapDispatchToProps),
-)(BookListContainer);
+)(RateListContainer);

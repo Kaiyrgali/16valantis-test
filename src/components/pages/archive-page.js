@@ -5,7 +5,7 @@ import { ArchiveListContainer } from '../archive-list';
 function ArchivePage({ ratestoreService }) {
   const params = useParams();
   const valuteId = Object.values(params);
-  
+
   return (
     <div>
       <ArchiveListContainer valuteId={valuteId} />

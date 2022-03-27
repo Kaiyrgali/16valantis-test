@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function BookListItem({ ratesValute, rate }) {
+function RateListItem({ ratesValute, rate }) {
   const {
     CharCode, Value, Previous, ID
   } = rate;
@@ -20,4 +20,4 @@ function BookListItem({ ratesValute, rate }) {
   );
 }
 
-export default BookListItem;
+export default RateListItem;

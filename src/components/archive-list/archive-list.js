@@ -8,39 +8,43 @@ import { compose } from '../../utils';
 
 function ArchiveList ( { today, archives } ) {
 
-  return (
-    <div>
-      <h1>Archive of exchange rates</h1>
-      <h2>for the last 10 days</h2>   
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Code</th>
-            <th>Rate</th>
-            <th>Nominal</th>
-          </tr>
-        </thead>
+  if(archives) {
+    return (
+      <div>
+        <h1>Archive of exchange rates</h1>
+        <h2>for the last 10 days</h2>   
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Code</th>
+              <th>Rate</th>
+              <th>Nominal</th>
+            </tr>
+          </thead>
 
-        <tbody> 
-          { archives.map((oneDay) => (
-            <ArchiveListItem
-              key={archives.indexOf(oneDay)}
-              today={today}
-              oneDay={oneDay}
-            />
-          ))}
-        </tbody>
-      </table>
-    </div> 
-  );
+          <tbody> 
+            { archives.map((oneDay) => (
+              <ArchiveListItem
+                key={archives.indexOf(oneDay)}
+                today={today}
+                oneDay={oneDay}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div> 
+    );
+  }
+  
+  return<div></div>
 }
 
 class ArchiveListContainer extends Component {
   componentDidMount() {
     this.props.fetchArchive(this.props.rates, this.props.valuteId);
   }
-  
+
   render() {
     const {
       today, archives

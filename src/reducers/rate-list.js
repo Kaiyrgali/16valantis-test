@@ -6,12 +6,11 @@ const updateRateList = (state, action) => {
       loading: true,
       error: null,
       today: new Date(),
-      archives: [],
     };
   }
 
   switch (action.type) {
-    case 'FETCH_RATES_REQUEST': //зачем тогда это нужно?
+    case 'FETCH_RATES_REQUEST':
       return {
         ...state.rateList,
       };

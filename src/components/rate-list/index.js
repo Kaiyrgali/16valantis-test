@@ -1,3 +1,3 @@
-import BookList from './rate-list';
+import RateList from './rate-list';
 
-export default BookList;
+export default RateList;

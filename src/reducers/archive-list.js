@@ -18,16 +18,6 @@ const updateArchiveList = (state, action) => {
         archives: action.payload,
       };
 
-    case 'FETCH_RATES_FAILURE':
-      return {
-        archives: [],
-      };
-
-    case 'GET_RATES_ARCHIVE':
-      return {
-        archives: state.rateList.books,
-      }
-
     default:
       return state.rateList;
   }

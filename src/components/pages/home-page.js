@@ -1,10 +1,10 @@
 import React from 'react';
-import BookListContainer from '../rate-list';
+import RateListContainer from '../rate-list';
 
 function HomePage({ ratestoreService }) {
   return (
     <div>
-      <BookListContainer />
+      <RateListContainer />
     </div>
   );
 }
