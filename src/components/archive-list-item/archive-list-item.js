@@ -8,7 +8,7 @@ function ArchiveListItem( { today, oneDay} ) {
 today = new Date(Date.parse(today)-86400000*countDays);
 // console.log('countDays', countDays);
 // console.log('Date.parse(today)', Date.parse(today));
-countDays++;
+countDays++; //перенести в обьявление функции
 // const newDate = Date.parse(todayDate)
 // const formatDate = new Date(newDate);
 // const formatDateR = formatDate.toDateString();

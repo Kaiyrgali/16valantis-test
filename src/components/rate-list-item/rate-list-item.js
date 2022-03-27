@@ -17,7 +17,7 @@ function BookListItem({ ratesValute, rate }) {
   return (
     
     // { rates.map((rate) => ( 
-    <tr className='tooltip'
+    <tr className='active'
         onClick={()=>gotoArchivePage()}
           // gotoArchivePage(ID) }
         >

@@ -21,6 +21,7 @@ function ArchiveList ( { today, archives } ) {
       <h1>Archive of exchange rates</h1>
       <h2>for the last 10 days</h2>   
       <table>
+      {/* <caption>Archive of exchange rates for the last 10 days</caption> */}
         <thead>
           <tr>
             <th className="d-none d-lg-table-cell">Date</th>

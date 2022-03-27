@@ -1,22 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Roboto&display=swap');
+
 $body-color: white;
+$red-color: rgb(220, 53, 69);
 
 body {
   background-color: $body-color;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 600px;
+  text-align: center;
+  justify-content: center;
 }
 
-// .tooltip .tooltiptext {
-//   visibility: hidden;
-//   width: 120px;
-//   background-color: black;
-//   color: #fff;
-//   text-align: center;
-//   padding: 5px 0;
-//   border-radius: 6px;
-//   position: absolute;
-//   z-index: 1;
-// }
+.shop-header {
+  color: $red-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-.tooltip:hover  {
-  color: red;
+table {
+  table-layout: fixed;
+  max-width: 400px;
+  margin: 0 auto;
+
+  // border: 0px
+  // text-align: center;
+  // justify-content: center;
+  // border-collapse: collapse;
+  // border: 3px solid purple;
+}
+
+thead th {
+  width: 25%;
+}
+
+.active:hover  {
+  background-color: $red-color;
   cursor: pointer;
 }
