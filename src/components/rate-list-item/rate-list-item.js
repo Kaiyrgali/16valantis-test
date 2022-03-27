@@ -21,11 +21,11 @@ function BookListItem({ ratesValute, rate }) {
         onClick={()=>gotoArchivePage()}
           // gotoArchivePage(ID) }
         >
-      <td className="d-none d-lg-table-cell">{NumCode}</td>
+      {/* <td className="d-none d-lg-table-cell">{NumCode}</td> */}
       <td className="d-none d-lg-table-cell">{CharCode}</td>
-      <td className="text-right">{changeRate}</td>
       <td className="d-none d-lg-table-cell">{Value.toFixed(2)}</td>
-      <td className="d-none d-md-table-cell">{Nominal}</td>
+      <td className="text-right">{changeRate}</td>
+      {/* <td className="d-none d-md-table-cell">{Nominal}</td> */}
     </tr>
     // ))
     // }

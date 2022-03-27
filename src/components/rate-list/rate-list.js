@@ -26,12 +26,12 @@ function BookList({ ratesValute, today }) {
       
       <thead>
         <tr>
-          <th className="d-none d-lg-table-cell">Цифр. код</th>
-          <th className="d-none d-lg-table-cell">Букв. код</th>
-          <th className="d-none d-lg-table-cell">% изм</th>
+          {/* <th className="d-none d-lg-table-cell">Цифр. код</th> */}
+          <th className="d-none d-lg-table-cell">Code</th>
+          <th className="d-none d-lg-table-cell">Rate</th>
+          <th className="d-none d-lg-table-cell">% change</th>
           {/* <th className="d-none d-lg-table-cell">Валюта</th> */}
-          <th className="d-none d-lg-table-cell">Курс</th>
-          <th className="d-none d-md-table-cell">Номинал</th>
+          {/* <th className="d-none d-md-table-cell">Номинал</th> */}
         </tr>
       </thead>
       <tbody>

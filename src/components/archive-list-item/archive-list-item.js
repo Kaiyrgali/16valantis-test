@@ -2,15 +2,17 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArchivePage } from '../pages';
 
-// gotoArchivePage = (id) = navigate('/:id')
+let countDays = 0;
 
-function ArchiveListItem( { oneDay, todayDate} ) {
-console.log('todayDate', todayDate);
-console.log('oneDay', oneDay);
-const newDate = Date.parse(todayDate)
-const formatDate = new Date(newDate);
-const formatDateR = formatDate.toDateString();
-console.log(newDate, formatDateR);
+function ArchiveListItem( { today, oneDay} ) {  
+today = new Date(Date.parse(today)-86400000*countDays);
+// console.log('countDays', countDays);
+// console.log('Date.parse(today)', Date.parse(today));
+countDays++;
+// const newDate = Date.parse(todayDate)
+// const formatDate = new Date(newDate);
+// const formatDateR = formatDate.toDateString();
+// console.log(newDate, formatDateR);
 
 // let now = new Date();
 // const newDay = moment(now).format('YYYY-MM-DD');
@@ -33,10 +35,10 @@ console.log(newDate, formatDateR);
   return (
     
     <tr >
-      <td className="d-none d-lg-table-cell">{ formatDateR }</td>
-      <td className="d-none d-lg-table-cell">{oneDay[0].NumCode}</td>
+      <td className="d-none d-lg-table-cell">{ today.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', }) }</td>
+      {/* <td className="d-none d-lg-table-cell">{oneDay[0].NumCode}</td> */}
       <td className="d-none d-lg-table-cell">{oneDay[0].CharCode}</td>
-      <td className="text-right">{oneDay[0].ID}</td>
+      {/* <td className="text-right">{oneDay[0].ID}</td> */}
       <td className="d-none d-lg-table-cell">{oneDay[0].Value}</td>
       <td className="d-none d-md-table-cell">{oneDay[0].Nominal}</td>
     </tr>

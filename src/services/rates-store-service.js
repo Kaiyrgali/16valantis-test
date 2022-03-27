@@ -21,17 +21,12 @@ export default class RatesStoreService {
 
    getArchiveRates = async (data, valuteId) => {
     // console.log(this.Daytoday);
-    const stringDay = data.Date;
-    const firstDate = Date.parse(data.Date)
-    const formatDate = new Date(newDate)
-    const previousDayURL = data.PreviousURL;
-    console.log(firstDay, previousDayURL);
-    console.log('getArchiveRates', firstDay, previousDayURL);
     const archiveData = Object.values(data.Valute);
+    let previousDayURL = data.PreviousURL;
     // console.log('archiveData', archiveData);
     const archiveListData = new Array(archiveData.filter(id=> id.ID.includes(valuteId)));
-    const archiveListData2 = archiveListData[0].Data=firstDay;
-    console.log('archiveListData2', archiveListData2);
+    // const archiveListData2 = archiveListData[0].Data=today;
+    // console.log('archiveListData2', archiveListData2);
 //     Date: "2022-03-24T11:30:00+03:00"
 // PreviousDate: "2022-03-23T11:30:00+03:00"
 // PreviousURL: "//www.cbr-xml-daily.ru/archive/2022/03/23/daily_json.js";
@@ -40,6 +35,8 @@ export default class RatesStoreService {
       const parseArchive= await res.json();
       const parseValute = Object.values(parseArchive.Valute)
       archiveListData.push(parseValute.filter(id=> id.ID.includes(valuteId)))
+      previousDayURL = parseArchive.PreviousURL;
+
     }
     console.log(archiveListData);
     // console.log(res);

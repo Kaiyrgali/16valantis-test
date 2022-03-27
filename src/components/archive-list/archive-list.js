@@ -14,21 +14,22 @@ import ErrorIndicator from '../error-indicator';
 // import '../../../main.css';
 
 
-function ArchiveList ( { todayDate, archives } ) {
-  console.log('archives', archives);
-  console.log('todayDate', todayDate);
-  return (
+function ArchiveList ( { today, archives } ) {
 
+  return (
+    <div>
+      <h1>Archive of exchange rates</h1>
+      <h2>for the last 10 days</h2>   
       <table>
         <thead>
           <tr>
-            <th className="d-none d-lg-table-cell">Дата</th>
-            <th className="d-none d-lg-table-cell">Цифр. код</th>
-            <th className="d-none d-lg-table-cell">Букв. код</th>
-            <th className="d-none d-lg-table-cell">% изм</th>
+            <th className="d-none d-lg-table-cell">Date</th>
+            {/* <th className="d-none d-lg-table-cell">Цифр. код</th> */}
+            <th className="d-none d-lg-table-cell">Code</th>
+            {/* <th className="d-none d-lg-table-cell">% изм</th> */}
             {/* <th className="d-none d-lg-table-cell">Валюта</th> */}
-            <th className="d-none d-lg-table-cell">Курс</th>
-            <th className="d-none d-md-table-cell">Номинал</th>
+            <th className="d-none d-lg-table-cell">Rate</th>
+            <th className="d-none d-md-table-cell">Nominal</th>
           </tr>
         </thead>
 
@@ -38,7 +39,7 @@ function ArchiveList ( { todayDate, archives } ) {
             key={archives.indexOf(oneDay)}
             // archives={archives}
             // key={archives.id}
-            todayDate={todayDate}
+            today={today}
             oneDay={oneDay}
             
             />
@@ -47,6 +48,7 @@ function ArchiveList ( { todayDate, archives } ) {
         </tbody>
         
       </table>
+    </div> 
     );
 }
 
@@ -58,17 +60,12 @@ class ArchiveListContainer extends Component {
   }
   render() {
     const {
-      rates, archives
+      today, archives
     } = this.props;
-    console.log('this.props', this.props);
-    console.log("archives", archives);
-    console.log('rates.Date', rates.Date)
-    // console.log(rates)
-    // rates = Object.values(rates.Valute);
     if (archives != []) {
     return (
       <ArchiveList
-      todayDate = {rates.Date}
+      today = { today }
       archives = { archives }
         // gotoPageNew = {gotoPageNew}
       />
@@ -76,7 +73,7 @@ class ArchiveListContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ rateList: { rates, today }, archiveList: { archives } }) => ({ rates, taday, archives });
+const mapStateToProps = ({ rateList: { rates, today }, archiveList: { archives } }) => ({ rates, today, archives });
 
 const mapDispatchToProps = (dispatch, { ratestoreService } ) =>
   bindActionCreators({
