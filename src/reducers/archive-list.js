@@ -9,13 +9,11 @@ const updateArchiveList = (state, action) => {
   switch (action.type) {
 
     case 'FETCH_ARCHIVE_REQUEST':
-      console.log('fetch state', state);
       return {
         archives: [],
       };
 
-    case 'FETCH_ARCHIVE_SUCCESS':
-      console.log('FETCH_ARCHIVE_payload', action.payload);
+      case 'FETCH_ARCHIVE_SUCCESS':
       return {
         archives: action.payload,
       };
@@ -26,7 +24,6 @@ const updateArchiveList = (state, action) => {
       };
 
     case 'GET_RATES_ARCHIVE':
-      console.log(state) // скорректировать
       return {
         archives: state.rateList.books,
       }

@@ -11,7 +11,6 @@ import RatesStoreService from '../../services/rates-store-service';
 const ratestoreService = new RatesStoreService();
 
 function App() {
-
   return (
     <Provider store={store}>
       <ErrorBoundry>
@@ -23,7 +22,6 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="*" element={<NotFound />} />
                 <Route path="/archive/*" element={<ArchivePage />} />
-
               </Routes>
             </div>
           </Router>

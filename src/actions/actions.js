@@ -1,13 +1,13 @@
-const booksRequested = () => ({
+const ratesRequested = () => ({
   type: 'FETCH_RATES_REQUEST',
 });
 
-const booksLoaded = (newBooks) => ({
+const ratesLoaded = (newRates) => ({
   type: 'FETCH_RATES_SUCCESS',
-  payload: newBooks,
+  payload: newRates,
 });
 
-const booksError = (error) => ({
+const ratesError = (error) => ({
   type: 'FETCH_RATES_FAILURE',
   payload: error,
 });
@@ -21,44 +21,18 @@ const archiveLoaded = (archive) => ({
   payload: archive,
 });
 
-
-export const getFilter = (newValue) => ({
-  type: 'GET_BOOK_FILTER',
-  payload: newValue,
-});
-export const getRaiting = (newValue) => ({
-  type: 'GET_BOOK_RAITING',
-  payload: newValue,
-});
-
-export const getPrice = (newValue) => ({
-  type: 'GET_BOOK_PRICE',
-  payload: newValue,
-});
-
-export const gotoPage = (page) => ({
-  type: 'GET_BOOK_PAGE',
-  payload: page,
-});
-
 const fetchRates = (ratestoreService) => () => (dispatch) => {
-  dispatch(booksRequested());
+  dispatch(ratesRequested());
   ratestoreService.getDailyRates()
-    // const data = ;
-    // .then(()=>(const data = Object.values(parseData.Valute)))
-    .then((data) => dispatch(booksLoaded(data)))
-    .catch((err) => dispatch(booksError(err)));
+    .then((data) => dispatch(ratesLoaded(data)))
+    .catch((err) => dispatch(ratesError(err)));
 };
 
 const fetchArchive = (ratestoreService) => (data, valuteId) => (dispatch) => {
-  // console.log('ratestoreService', ratestoreService);
-  // console.log(data);
   dispatch(archiveRequested());
   ratestoreService.getArchiveRates(data, valuteId)
     .then((newData) => dispatch(archiveLoaded(newData)))
-    // .catch((err) => dispatch(booksError(err)));
 };
-
 
 export {
   fetchRates,
