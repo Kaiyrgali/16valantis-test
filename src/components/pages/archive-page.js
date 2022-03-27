@@ -11,6 +11,6 @@ function ArchivePage({ ratestoreService }) {
       <ArchiveListContainer valuteId={valuteId} />
     </div>
   );
-};
+}
 
 export default ArchivePage;

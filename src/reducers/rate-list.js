@@ -1,5 +1,4 @@
 const updateRateList = (state, action) => {
-
   if (state === undefined) {
     return {
       rates: [],
@@ -21,13 +20,13 @@ const updateRateList = (state, action) => {
         rates: action.payload,
         loading: false,
         today: new Date(action.payload.Date),
-        };
+      };
 
     case 'FETCH_RATES_FAILURE':
       return {
         ...state.rateList,
         error: action.payload,
-        };
+      };
 
     default:
       return state.rateList;

@@ -1,9 +1,8 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-module.exports = 
-{
-  mode: "development",
+module.exports = {
+  mode: 'development',
   output: {
     publicPath: '/',
   },
@@ -16,9 +15,9 @@ module.exports =
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       // Loading images
       {
@@ -28,10 +27,10 @@ module.exports =
             loader: 'file-loader',
             options: {
               outputPath: 'images',
-              name: '[name]-[sha1:hash:7].[ext]'
-            }
-          }
-        ]
+              name: '[name]-[sha1:hash:7].[ext]',
+            },
+          },
+        ],
       },
 
       // Loading fonts
@@ -42,35 +41,35 @@ module.exports =
             loader: 'file-loader',
             options: {
               outputPath: 'fonts',
-              name: '[name].[ext]'
-            }
-          }
-        ]
+              name: '[name].[ext]',
+            },
+          },
+        ],
       },
       // mini CSS
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       // Loading SASS/SCSS
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader",],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
 
-    ]
+    ],
   },
   devtool: 'inline-source-map',
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'main-[hash:8].css'
+      filename: 'main-[hash:8].css',
     }),
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
-    })
+      template: 'public/index.html',
+    }),
   ],
   devServer: {
     open: true,
-    historyApiFallback: true
-  }
+    historyApiFallback: true,
+  },
 };

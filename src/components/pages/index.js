@@ -5,5 +5,5 @@ import NotFound from './not-found';
 export {
   HomePage,
   ArchivePage,
-  NotFound
+  NotFound,
 };

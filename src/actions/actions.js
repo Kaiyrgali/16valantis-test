@@ -31,10 +31,10 @@ const fetchRates = (ratestoreService) => () => (dispatch) => {
 const fetchArchive = (ratestoreService) => (data, valuteId) => (dispatch) => {
   dispatch(archiveRequested());
   ratestoreService.getArchiveRates(data, valuteId)
-    .then((newData) => dispatch(archiveLoaded(newData)))
+    .then((newData) => dispatch(archiveLoaded(newData)));
 };
 
 export {
   fetchRates,
-  fetchArchive
+  fetchArchive,
 };

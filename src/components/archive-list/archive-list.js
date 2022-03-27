@@ -5,14 +5,14 @@ import ArchiveListItem from '../archive-list-item';
 import { withRatesStoreService } from '../hoc';
 import { fetchArchive } from '../../actions';
 import { compose } from '../../utils';
+import Spinner from '../spinner';
 
-function ArchiveList ( { today, archives } ) {
-
-  if(archives) {
+function ArchiveList({ today, archives }) {
+  if (archives) {
     return (
       <div>
         <h1>Archive of exchange rates</h1>
-        <h2>for the last 10 days</h2>   
+        <h2>for the last 10 days</h2>
         <table>
           <thead>
             <tr>
@@ -23,7 +23,7 @@ function ArchiveList ( { today, archives } ) {
             </tr>
           </thead>
 
-          <tbody> 
+          <tbody>
             { archives.map((oneDay) => (
               <ArchiveListItem
                 key={archives.indexOf(oneDay)}
@@ -33,11 +33,11 @@ function ArchiveList ( { today, archives } ) {
             ))}
           </tbody>
         </table>
-      </div> 
+      </div>
     );
   }
-  
-  return<div></div>
+
+  return <Spinner />;
 }
 
 class ArchiveListContainer extends Component {
@@ -47,13 +47,13 @@ class ArchiveListContainer extends Component {
 
   render() {
     const {
-      today, archives
+      today, archives,
     } = this.props;
     if (archives != []) {
       return (
         <ArchiveList
-        today = { today }
-        archives = { archives }
+          today={today}
+          archives={archives}
         />
       );
     }
@@ -62,13 +62,11 @@ class ArchiveListContainer extends Component {
 
 const mapStateToProps = ({ rateList: { rates, today }, archiveList: { archives } }) => ({ rates, today, archives });
 
-const mapDispatchToProps = (dispatch, { ratestoreService } ) =>
-  bindActionCreators({
-    fetchArchive: fetchArchive(ratestoreService),
-  }, dispatch);
-  
+const mapDispatchToProps = (dispatch, { ratestoreService }) => bindActionCreators({
+  fetchArchive: fetchArchive(ratestoreService),
+}, dispatch);
+
 export default compose(
   withRatesStoreService(),
   connect(mapStateToProps, mapDispatchToProps),
 )(ArchiveListContainer);
-

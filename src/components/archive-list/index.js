@@ -1,5 +1,5 @@
 import ArchiveListContainer from './archive-list';
 
 export {
-  ArchiveListContainer
+  ArchiveListContainer,
 };

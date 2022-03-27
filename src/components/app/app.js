@@ -17,7 +17,7 @@ function App() {
         <RatesStoreServiceProvider value={ratestoreService}>
           <Router>
             <div>
-              <ShopHeader /> 
+              <ShopHeader />
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="*" element={<NotFound />} />

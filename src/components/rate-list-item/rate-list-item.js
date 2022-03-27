@@ -1,19 +1,20 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function RateListItem({ ratesValute, rate }) {
+function RateListItem({ rate }) {
   const {
-    CharCode, Value, Previous, ID, Name
+    CharCode, Value, Previous, ID, Name,
   } = rate;
-  const changeRate = ((Value/Previous-1)*100).toFixed(2);
-  const navigate  = useNavigate()
-  function gotoArchivePage () {navigate(`/archive/${ID}`)}
-  
+  const changeRate = ((Value / Previous - 1) * 100).toFixed(2);
+  const navigate = useNavigate();
+  function gotoArchivePage() { navigate(`/archive/${ID}`); }
+
   return (
-    <tr className='active'
-        onClick={()=>gotoArchivePage()}
-        data-tip={Name}
-        >
+    <tr
+      className="active"
+      onClick={() => gotoArchivePage()}
+      data-tip={Name}
+    >
       <td>{CharCode}</td>
       <td>{Value.toFixed(2)}</td>
       <td>{changeRate}</td>

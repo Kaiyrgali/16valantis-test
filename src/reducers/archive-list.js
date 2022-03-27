@@ -1,5 +1,4 @@
 const updateArchiveList = (state, action) => {
-
   if (state === undefined) {
     return {
       archives: [],
@@ -7,13 +6,12 @@ const updateArchiveList = (state, action) => {
   }
 
   switch (action.type) {
-
     case 'FETCH_ARCHIVE_REQUEST':
       return {
         archives: [],
       };
 
-      case 'FETCH_ARCHIVE_SUCCESS':
+    case 'FETCH_ARCHIVE_SUCCESS':
       return {
         archives: action.payload,
       };
