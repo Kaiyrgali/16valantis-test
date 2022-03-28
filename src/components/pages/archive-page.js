@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { ArchiveListContainer } from '../archive-list';
 
-function ArchivePage({ ratestoreService }) {
+function ArchivePage({ rateStoreService }) {
   const params = useParams();
   const valuteId = Object.values(params);
 

@@ -49,21 +49,19 @@ class ArchiveListContainer extends Component {
     const {
       today, archives,
     } = this.props;
-    if (archives != []) {
-      return (
-        <ArchiveList
-          today={today}
-          archives={archives}
-        />
-      );
-    }
+    return (
+      <ArchiveList
+        today={today}
+        archives={archives}
+      />
+    );
   }
 }
 
 const mapStateToProps = ({ rateList: { rates, today }, archiveList: { archives } }) => ({ rates, today, archives });
 
-const mapDispatchToProps = (dispatch, { ratestoreService }) => bindActionCreators({
-  fetchArchive: fetchArchive(ratestoreService),
+const mapDispatchToProps = (dispatch, { rateStoreService }) => bindActionCreators({
+  fetchArchive: fetchArchive(rateStoreService),
 }, dispatch);
 
 export default compose(

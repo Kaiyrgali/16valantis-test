@@ -7,12 +7,12 @@ function RateListItem({ rate }) {
   } = rate;
   const changeRate = ((Value / Previous - 1) * 100).toFixed(2);
   const navigate = useNavigate();
-  function gotoArchivePage() { navigate(`/archive/${ID}`); }
+  const gotoArchivePage = () => { navigate(`/archive/${ID}`); }
 
   return (
     <tr
       className="active"
-      onClick={() => gotoArchivePage()}
+      onClick={gotoArchivePage}
       data-tip={Name}
     >
       <td>{CharCode}</td>

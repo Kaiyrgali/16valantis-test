@@ -8,22 +8,20 @@ import ErrorBoundry from '../error-boundry';
 import { RatesStoreServiceProvider } from '../bookstore-service-context';
 import RatesStoreService from '../../services/rates-store-service';
 
-const ratestoreService = new RatesStoreService();
+const rateStoreService = new RatesStoreService();
 
 function App() {
   return (
     <Provider store={store}>
       <ErrorBoundry>
-        <RatesStoreServiceProvider value={ratestoreService}>
+        <RatesStoreServiceProvider value={rateStoreService}>
           <Router>
-            <div>
-              <ShopHeader />
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="*" element={<NotFound />} />
-                <Route path="/archive/*" element={<ArchivePage />} />
-              </Routes>
-            </div>
+            <ShopHeader />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/archive/*" element={<ArchivePage />} />
+            </Routes>
           </Router>
         </RatesStoreServiceProvider>
       </ErrorBoundry>

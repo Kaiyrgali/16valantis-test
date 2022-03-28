@@ -21,16 +21,16 @@ const archiveLoaded = (archive) => ({
   payload: archive,
 });
 
-const fetchRates = (ratestoreService) => () => (dispatch) => {
+const fetchRates = (rateStoreService) => () => (dispatch) => {
   dispatch(ratesRequested());
-  ratestoreService.getDailyRates()
+  rateStoreService.getDailyRates()
     .then((data) => dispatch(ratesLoaded(data)))
     .catch((err) => dispatch(ratesError(err)));
 };
 
-const fetchArchive = (ratestoreService) => (data, valuteId) => (dispatch) => {
+const fetchArchive = (rateStoreService) => (data, valuteId) => (dispatch) => {
   dispatch(archiveRequested());
-  ratestoreService.getArchiveRates(data, valuteId)
+  rateStoreService.getArchiveRates(data, valuteId)
     .then((newData) => dispatch(archiveLoaded(newData)));
 };
 

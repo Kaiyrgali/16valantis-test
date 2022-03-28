@@ -1,15 +1,9 @@
-**Тестовое задание**
-Используя API
-https://www.cbr-xml-daily.ru/
-вывести на страницу список курсов валют на текущий день. В третьей колонке вывести процентное изменение курса относительно предыдущего дня. Данные за предыдущий период можно драть по ссылке формата https://www.cbr-xml-daily.ru/archive/2022/02/11/daily_json.js
-Формат вывода - Код валюты, значение в рублях, разница в процентах в сравнении с предыдущим днем. Вывод в виде списка. При наведении на элемент списка он должен выделяться и под курсором должно отображаться полное название валюты в tooltip.
-При клике на элемент списка отображается список по данной валюте за 10 дней.
+#  Test tasks 
 
-Реализовать на ванильном JS либо React
-Решение выгрузить на github
-
-Сбор заданий будет производиться до 30 марта.
-
-Лучшие будут приняты.
-
-В случае отказа от ТЗ, просим сразу об этом сообщить, спасибо!
+- Using API https://www.cbr-xml-daily.ru/ display a list of exchange rates for the current day.
+- In the third column, display the percentage change in the exchange rate relative to the previous day.
+- Data for the previous period can be taken from the link of the format https://www.cbr-xml-daily.ru/archive/2022/02/11/daily_json.js
+- Output format - currency code, value in rubles, percentage difference compared to the previous day.
+- When you hover over a list item, it should be highlighted and the full name of the currency should be displayed  in the tooltip.
+- When you click on an element from the list, a new list is displayed for this currency for 10 days.
+- Write code in pure JS or React.

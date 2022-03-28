@@ -1,7 +1,7 @@
 import React from 'react';
 import RateListContainer from '../rate-list';
 
-function HomePage({ ratestoreService }) {
+function HomePage() {
   return (
     <div>
       <RateListContainer />

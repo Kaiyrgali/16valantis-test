@@ -73,8 +73,8 @@ const mapStateToProps = ({
   rates, loading, error, today,
 });
 
-const mapDispatchToProps = (dispatch, { ratestoreService }) => bindActionCreators({
-  fetchRates: fetchRates(ratestoreService),
+const mapDispatchToProps = (dispatch, { rateStoreService }) => bindActionCreators({
+  fetchRates: fetchRates(rateStoreService),
 }, dispatch);
 
 export default compose(
